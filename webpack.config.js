@@ -16,6 +16,10 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -26,7 +30,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src'),
   plugins: [htmlPlugin],
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   }
 };

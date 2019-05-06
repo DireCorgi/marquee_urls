@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #107595;
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #010059;
+  text-decoration: underline;
+}
