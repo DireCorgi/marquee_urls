@@ -1,8 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from 'components/Main';
 
-const Index: React.FunctionComponent = () => {
-  return <div>Hello There</div>;
+const App: React.FunctionComponent = () => {
+  return <Main />;
 };
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
