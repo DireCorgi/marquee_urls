@@ -2,7 +2,7 @@
 Marquee text in your URL!
 
 ## Demo Site
-[Demo Site Live Link](http://marqueeurl.s3-website-us-east-1.amazonaws.com)
+[Demo Site Live Link](http://marquee-url.direcorgi.com)
 
 ### Notes
 1. Some browsers throttle how quickly you can do redirects, so the animation is not super smooth.
