@@ -6,6 +6,7 @@ import { animateMarqueeUrl } from '../../src/index';
 const AnimatedDiv = styled.div`
   color: #fdbfb3;
   font-size: 16px;
+  margin-top: 5px;
 `;
 
 const StyledButton = styled.button`
@@ -34,7 +35,7 @@ interface AnimateUrlProps {
   history: History;
 }
 
-const maxCycles = 100;
+const maxCycles = 101;
 
 const AnimateUrl: React.FunctionComponent<AnimateUrlProps> = ({ text, history }) => {
   const [animating, toggleAnimating] = useState<boolean>(false);
@@ -59,15 +60,15 @@ const AnimateUrl: React.FunctionComponent<AnimateUrlProps> = ({ text, history })
   if (animating) {
     return (
       <div>
-        <AnimatedDiv>Animating...</AnimatedDiv>
         <StyledButton
           onClick={() => {
             clearInterval(intervalId);
             toggleAnimating(false);
           }}
-        >
+          >
           Stop
         </StyledButton>
+        <AnimatedDiv>Animating...</AnimatedDiv>
       </div>
     );
   } else {
