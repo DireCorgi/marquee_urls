@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { History } from 'history';
 import styled from 'styled-components';
+import { animateMarqueeUrl } from '../../src/index';
 
 const AnimatedDiv = styled.div`
   color: #fdbfb3;
@@ -26,7 +27,7 @@ const ErrorDiv = styled.div`
   color: #d25959;
   font-size: 14px;
   margin: 10px 0;
-`
+`;
 
 interface AnimateUrlProps {
   text: string;
@@ -41,32 +42,16 @@ const AnimateUrl: React.FunctionComponent<AnimateUrlProps> = ({ text, history })
   const [error, setError] = useState<string>();
 
   const animate = () => {
-    const formattedText = text.replace(/\s/gi, "_");
-    if (formattedText.length >= maxCycles) {
-      setError('Text is too long.');
-      return;
-    } else {
-      setError('');
-    }
-    if (formattedText) {
-      toggleAnimating(true);
-      let cycles = maxCycles - formattedText.length;
-      const interval = setInterval(() => {
-        let frontText = '';
-        if (cycles < 0) {
-          for (let i = formattedText.length - 1; i > formattedText.length + cycles; i--) {
-            frontText = formattedText[i] + frontText;
-          }
-        }
-        const frontFiller = '_'.repeat(maxCycles - cycles - formattedText.length - frontText.length);
-        const endFiller = cycles > 0 ? '_'.repeat(cycles) : '';
-        const middleText = cycles > 0 ? formattedText : formattedText.substr(0, formattedText.length + cycles);
-        history.replace(frontText + frontFiller + middleText + endFiller);
-        cycles -= 1;
-        if (cycles < -formattedText.length) {
-          cycles = maxCycles - formattedText.length;
-        }
-      }, 100);
+    const formatText = (textToFormat: string) => textToFormat.replace(/\s/gi, '_');
+    const interval = animateMarqueeUrl({
+      text,
+      maxLength: maxCycles,
+      history,
+      handleError: setError,
+      handleAnimationStart: () => toggleAnimating(true),
+      formatText
+    });
+    if (interval) {
       setIntervalId(interval);
     }
   };

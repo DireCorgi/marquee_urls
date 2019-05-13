@@ -1,4 +1,4 @@
-require('styles/normalize');
-require('styles/global');
+import getCurrentText from './getCurrentText';
+import animateMarqueeUrl from './animateMarqueeUrl';
 
-import 'root';
+export { getCurrentText, animateMarqueeUrl };
