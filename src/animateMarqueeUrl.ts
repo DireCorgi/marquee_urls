@@ -15,7 +15,7 @@ const animateMarqueeUrl: (args: animateMarqueeUrlArgs) => number | null = ({
   maxLength,
   history,
   handleError = () => {},
-  handleAnimationStart = () => {}, 
+  handleAnimationStart = () => {},
   formatText = txt => txt
 }) => {
   const formattedText = formatText(text);
