@@ -9,10 +9,10 @@ const AnimatedDiv = styled.div`
   margin-top: 5px;
 `;
 
-const StyledButton = styled.button`
-  background: #107595;
-  border: 1px solid #010059;
-  color: #fff;
+const StyledButton = styled.button<{stop?: boolean}>`
+  background: ${(props: { stop: boolean }) => props.stop  ? '#ffbaba' : '#107595'};
+  border: 1px solid ${(props: { stop: boolean }) => props.stop  ? '#ff0000' : '#010059'};
+  color: ${(props: { stop: boolean }) => props.stop  ? '#a70000' : '#FFF'};
   font-size: 16px;
   margin-right: 10px;
   padding: 5px 10px;
@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background: #010059;
+    background: ${(props: { stop: boolean }) => props.stop  ? '#ff7b7b' : '#010059'};
   }
 `;
 
@@ -64,6 +64,7 @@ const AnimateUrl: React.FunctionComponent<AnimateUrlProps> = ({ text, history })
             clearInterval(intervalId);
             toggleAnimating(false);
           }}
+          stop
           >
           Stop
         </StyledButton>

@@ -22,8 +22,6 @@ const animateMarqueeUrl: (args: animateMarqueeUrlArgs) => number | null = ({
   if (formattedText.length >= maxLength) {
     handleError('Text is too long.');
     return null;
-  } else {
-    handleError('');
   }
   if (formattedText) {
     handleAnimationStart();
