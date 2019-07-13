@@ -35,12 +35,11 @@ interface AnimateUrlProps {
   history: History;
 }
 
-const maxCycles = 101;
-
 const AnimateUrl: React.FunctionComponent<AnimateUrlProps> = ({ text, history }) => {
   const [animating, toggleAnimating] = useState<boolean>(false);
   const [intervalId, setIntervalId] = useState<number>();
   const [error, setError] = useState<string>();
+  const maxCycles = text.length + 5;
 
   const animate = () => {
     const formatText = (textToFormat: string) => textToFormat.replace(/\s/gi, '_');
